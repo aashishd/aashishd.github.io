@@ -1,1 +1,404 @@
-Hello World
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ashish Dhiman — Machine Learning Engineer</title>
+<meta name="description" content="Lead Machine Learning Engineer with 13+ years taking ML from research to production. Representation learning, embeddings, computer vision. Gent, Belgium.">
+<meta property="og:title" content="Ashish Dhiman — Machine Learning Engineer">
+<meta property="og:description" content="13+ years taking ML from research to production. Representation learning, embeddings, computer vision.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231F3A5F'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAD%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ashish Dhiman",
+  "jobTitle": "Machine Learning Engineer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Gent", "addressCountry": "BE" },
+  "alumniOf": "Georgia Institute of Technology",
+  "sameAs": [
+    "https://github.com/aashishd",
+    "https://linkedin.com/in/ashishdhiman89",
+    "https://medium.com/@ashish.dhiman"
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg: #fdfdfc;
+    --card: #ffffff;
+    --fg: #21272f;
+    --muted: #5b6470;
+    --accent: #1F3A5F;
+    --accent-soft: #eef2f7;
+    --border: #e3e6ea;
+    --pill-bg: #f1f3f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #11151a;
+      --card: #171c23;
+      --fg: #dde3ea;
+      --muted: #8b95a3;
+      --accent: #8fb3e0;
+      --accent-soft: #1c2530;
+      --border: #2a323d;
+      --pill-bg: #1f2730;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 780px; margin: 0 auto; padding: 56px 24px 80px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---- header ---- */
+  header h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .tagline { margin: 6px 0 0; font-size: 1.15rem; color: var(--accent); font-weight: 600; }
+  .location { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+  .summary { margin: 20px 0 0; max-width: 64ch; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--fg);
+    background: var(--card);
+    transition: border-color .15s, background .15s;
+  }
+  .links a:hover { text-decoration: none; border-color: var(--accent); background: var(--accent-soft); }
+  .links svg { width: 15px; height: 15px; fill: currentColor; opacity: .8; }
+
+  /* ---- highlights ---- */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .highlights div {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .highlights strong { display: block; font-size: 1.25rem; color: var(--accent); letter-spacing: -0.01em; }
+  .highlights span { font-size: 0.82rem; color: var(--muted); line-height: 1.4; display: block; margin-top: 2px; }
+
+  /* ---- sections ---- */
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+
+  /* ---- experience (collapsibles) ---- */
+  details {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 44px 16px 18px;
+    position: relative;
+    transition: background .15s;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { background: var(--accent-soft); }
+  summary::after {
+    content: "";
+    position: absolute;
+    right: 18px; top: 24px;
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    transform: rotate(45deg);
+    transition: transform .2s;
+  }
+  details[open] summary::after { transform: rotate(225deg); top: 28px; }
+  .role-line { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; align-items: baseline; }
+  .role { font-weight: 650; font-size: 1.02rem; }
+  .dates { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
+  .org { color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+  .hook { font-size: 0.92rem; margin-top: 8px; color: var(--fg); opacity: .85; }
+  details ul { margin: 0; padding: 4px 20px 18px 36px; border-top: 1px solid var(--border); }
+  details li { margin-top: 10px; font-size: 0.95rem; }
+  details li::marker { color: var(--accent); }
+
+  /* ---- projects ---- */
+  .project {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .project .role-line { margin-bottom: 4px; }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .project p { margin: 8px 0 0; font-size: 0.95rem; }
+  .more-link { font-size: 0.9rem; }
+
+  /* ---- skills ---- */
+  .skill-group { margin-bottom: 16px; }
+  .skill-group h3 { font-size: 0.9rem; margin: 0 0 8px; color: var(--muted); font-weight: 600; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pills span {
+    background: var(--pill-bg);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.84rem;
+  }
+
+  /* ---- pubs / education ---- */
+  .item { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .item:last-child { border-bottom: none; }
+  .item .role-line { align-items: baseline; }
+  .item p { margin: 4px 0 0; font-size: 0.92rem; color: var(--muted); }
+
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header>
+    <h1>Ashish Dhiman</h1>
+    <p class="tagline">Machine Learning Engineer</p>
+    <p class="location">Gent, Belgium</p>
+    <p class="summary">Lead Machine Learning Engineer with 13+ years taking ML from research to
+    production. Specialized in representation learning, embeddings, and computer vision, with RAG
+    and NLP. Proven at global scale across TomTom and HERE; inventor on a granted US patent and
+    co-author of EU-funded research.</p>
+    <nav class="links">
+      <a href="https://github.com/aashishd">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub</a>
+      <a href="https://linkedin.com/in/ashishdhiman89">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.6 0H2.4A2.4 2.4 0 0 0 0 2.4v11.2A2.4 2.4 0 0 0 2.4 16h11.2a2.4 2.4 0 0 0 2.4-2.4V2.4A2.4 2.4 0 0 0 13.6 0zM4.98 13.5H2.6V6.1h2.38v7.4zM3.79 5.07a1.38 1.38 0 1 1 0-2.76 1.38 1.38 0 0 1 0 2.76zM13.5 13.5h-2.37V9.9c0-.86-.02-1.96-1.2-1.96-1.2 0-1.38.93-1.38 1.9v3.66H6.18V6.1h2.28v1.01h.03c.32-.6 1.09-1.23 2.25-1.23 2.4 0 2.85 1.58 2.85 3.64v3.98z"/></svg>
+        LinkedIn</a>
+      <a href="mailto:ashish.dhiman.nith@gmail.com">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg>
+        Email</a>
+      <a href="https://medium.com/@ashish.dhiman">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z"/></svg>
+        Medium</a>
+    </nav>
+  </header>
+
+  <div class="highlights">
+    <div><strong>13+ yrs</strong><span>ML, research → production</span></div>
+    <div><strong>67% → 99%</strong><span>traffic-sign map-matching accuracy</span></div>
+    <div><strong>US patent</strong><span>lane estimation, granted</span></div>
+    <div><strong>−40% cost</strong><span>EU-funded global land-cover automation</span></div>
+  </div>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <details open>
+      <summary>
+        <div class="role-line">
+          <span class="role">Lead Machine Learning Engineer — Applied Sciences</span>
+          <span class="dates">Feb 2020 – Present</span>
+        </div>
+        <div class="org">TomTom · Gent, Belgium</div>
+        <div class="hook">Sole applied scientist on a leadership-sponsored moonshot: a unified embedding layer over TomTom's global map data.</div>
+      </summary>
+      <ul>
+        <li>Architect of a unified <strong>embedding layer</strong> giving consistent vector representations across heterogeneous map data (roads, lanes, networks, POIs, signs) so internal and external teams build APIs, tools, and agents on one foundation. Own model selection, incremental delta-embedding generation, and hybrid deterministic + semantic retrieval; applying <strong>Matryoshka Representation Learning</strong> for adaptive multi-resolution embeddings. Built via spec-driven, agentic development — authoring specs and orchestrating AI coding agents.</li>
+        <li>As internal ML consultant to the Guidance &amp; Navigation org, built an end-to-end traffic-sign↔road map-matcher that raised matching accuracy from <strong>67% to 99%</strong>, plus a lane-restriction detection system and road-median→lane-border matching across navigation products.</li>
+        <li>Led the HD Lane feature team — computer-vision models and map-matching over HD aerial and LiDAR data for autonomous-driving maps.</li>
+        <li>Spearheaded an EU-co-funded research project (<a href="https://globalearthmonitor.eu">Global Earth Monitor</a>) on automated global land-cover mapping; deep-learning classification and change detection cut global automation cost <strong>40%</strong> and produced two published papers.</li>
+        <li>Built map-data representation models beyond the core platform: a <strong>Graph Neural Network</strong> road-network comparison system, and a contrastive-learning + vector-database system detecting suspicious OpenStreetMap changesets (anti-vandalism).</li>
+        <li>Created a context-driven feature-prioritization system for TomTom Core map that cut data size while preserving quality, contributing to <strong>five major client contracts</strong>; won the TomTom Global Hackathon (2022).</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <div class="role-line">
+          <span class="role">Senior Data Scientist — HD Mapping</span>
+          <span class="dates">May 2016 – Jan 2020</span>
+        </div>
+        <div class="org">HERE Maps · Mumbai, India</div>
+        <div class="hook">Computer vision over HD aerial and satellite imagery for ADAS mapping products.</div>
+      </summary>
+      <ul>
+        <li>Built and trained a <strong>U-Net</strong> model detecting road boundaries and lane markings from HD aerial imagery — core components of the company's ADAS mapping product.</li>
+        <li>Built a satellite-imagery road-detection system (<strong>EfficientNet</strong>) generating road boundaries and centerlines, and a <strong>YOLOv3</strong> pipeline for painted road signs across North America.</li>
+        <li>Automated geometry snapping (places→roads, one week → one day) and intersection lane-traversal detection (<strong>−95%</strong> manual time); won company hackathons three years running (2017–2019).</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <div class="role-line">
+          <span class="role">Founding Member, Tech Team</span>
+          <span class="dates">Oct 2017 – Aug 2018</span>
+        </div>
+        <div class="org">Unfound · Mumbai, India</div>
+        <div class="hook">Founding engineer of an NLP news-summarization startup.</div>
+      </summary>
+      <ul>
+        <li>Led a 5-person team building an NLP news-summarization platform, launched to <strong>500+ active users</strong> in the first quarter.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>
+        <div class="role-line">
+          <span class="role">Senior Software Engineer</span>
+          <span class="dates">Jun 2012 – Apr 2016</span>
+        </div>
+        <div class="org">Atos Worldline · Pune, India</div>
+        <div class="hook">Real-time banking web services and customer-facing applications.</div>
+      </summary>
+      <ul>
+        <li>Built real-time banking web services and a customer-facing application (AngularJS / Java) deployed across multiple banking clients.</li>
+      </ul>
+    </details>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <div class="role-line">
+        <span class="role">Iron Log</span>
+        <span class="badge">App Store — launch prep</span>
+      </div>
+      <p>iOS strength-training app (Flutter, Firebase, SQLite), built solo via spec-driven, agentic
+      development — authoring PRDs and specs, orchestrating AI coding agents to implement and
+      review.</p>
+    </div>
+    <p class="more-link">More on <a href="https://github.com/aashishd">github.com/aashishd</a> →</p>
+  </section>
+
+  <section id="publications">
+    <h2>Publications &amp; Patent</h2>
+    <div class="item">
+      <div class="role-line">
+        <span class="role"><a href="https://patents.google.com/patent/US11391576B2/en">US Patent 11,391,576 B2</a></span>
+        <span class="dates">Granted</span>
+      </div>
+      <p>Inventor — lane geometry and direction estimation using temporal satellite imagery for known road geometries.</p>
+    </div>
+    <div class="item">
+      <div class="role-line">
+        <span class="role"><a href="https://cordis.europa.eu/project/id/101004112">Global Earth Monitor — EU research papers</a></span>
+        <span class="dates">2021 – 2023</span>
+      </div>
+      <p>Contributor — Map-Making Use Case; Land-Cover Continuous Monitoring (EU Horizon project, CORDIS results).</p>
+    </div>
+    <div class="item">
+      <div class="role-line">
+        <span class="role"><a href="https://medium.com/@ashish.dhiman">Writing on Medium</a></span>
+      </div>
+      <p>Occasional posts on ML engineering.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>ML &amp; Deep Learning</h3>
+      <div class="pills">
+        <span>Representation Learning</span><span>Embeddings</span><span>Computer Vision</span>
+        <span>NLP</span><span>LLMs</span><span>RAG</span><span>Graph Neural Networks</span>
+        <span>Contrastive Learning</span><span>Object Detection</span><span>Segmentation</span><span>MLOps</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Frameworks</h3>
+      <div class="pills">
+        <span>PyTorch</span><span>PyTorch Lightning</span><span>TensorFlow</span><span>Keras</span>
+        <span>scikit-learn</span><span>pandas</span><span>OpenCV</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Platforms &amp; Data</h3>
+      <div class="pills">
+        <span>AWS</span><span>Azure</span><span>Spark</span><span>Databricks</span>
+        <span>Kubernetes</span><span>Vector Databases</span><span>Jenkins</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="pills">
+        <span>Python</span><span>Scala</span><span>Java</span><span>C#</span><span>JavaScript</span><span>Julia</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="item">
+      <div class="role-line">
+        <span class="role">MS, Computer Science — Machine Learning Specialisation</span>
+        <span class="dates">2020 – 2023</span>
+      </div>
+      <p>Georgia Institute of Technology, Atlanta</p>
+    </div>
+    <div class="item">
+      <div class="role-line">
+        <span class="role">B.E., Electrical &amp; Electronics</span>
+        <span class="dates">2008 – 2012</span>
+      </div>
+      <p>NIT Hamirpur</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Ashish Dhiman</span>
+    <span><a href="https://github.com/aashishd/aashishd.github.io">Source</a> — single static HTML, no framework</span>
+  </footer>
+
+</main>
+</body>
+</html>
